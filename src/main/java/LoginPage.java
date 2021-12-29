@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
-public class ButtonPanel extends JPanel {
+public class LoginPage extends JPanel {
     String dbUrl = "jdbc:postgresql://localhost:5432/postgres";
     Connection conn= DriverManager.getConnection(dbUrl, "postgres", "Swamiji812!");
     private JButton logBut;
@@ -12,34 +12,44 @@ public class ButtonPanel extends JPanel {
     private JLabel pass;
     private TextField userfield;
     private JPasswordField passfield;
+    private JLabel title;
+    private double width = 1200;
+    private double height = 800;
 
-    public ButtonPanel() throws SQLException {
+    public LoginPage() throws SQLException {
         setLayout(null);
 
+        title = new JLabel("Health Sentinel");
+        title.setBounds((int) (width*0.37),(int) (height*0.1),900,60);
+        title.setFont(new Font("Times New Roman",Font.BOLD, 60));
+        title.setForeground(Color.blue);
+        add(title);
+
+
         user = new JLabel("Username");
-        user.setBounds(150,200,150,40);
+        user.setBounds((int) (width*0.32), (int) (height*0.4),150,40);
         user.setForeground(Color.black);
         user.setFont(new Font("Times New Roman",Font.PLAIN, 32));
         add(user);
 
         userfield = new TextField(20);
-        userfield.setBounds(350,200,300,40);
+        userfield.setBounds((int) (width*0.5),(int) (height*0.4),300,40);
         userfield.setFont(new Font("Times New Roman",Font.PLAIN, 32));
         add(userfield);
 
         pass = new JLabel("Password");
-        pass.setBounds(150,275,150,40);
+        pass.setBounds((int) (width*0.32),(int) (height*0.5),150,40);
         pass.setForeground(Color.black);
         pass.setFont(new Font("Times New Roman",Font.PLAIN, 32));
         add(pass);
 
         passfield = new JPasswordField(20);
-        passfield.setBounds(350,275,300,40);
+        passfield.setBounds((int) (width*0.5),(int) (height*0.5),300,40);
         passfield.setFont(new Font("Times New Roman",Font.PLAIN, 32));
         add(passfield);
 
         logBut = new JButton("Login");
-        logBut.setBounds(325,350,150,60);
+        logBut.setBounds((int) (width*0.465),(int) (height*0.6),150,60);
         logBut.setFont(new Font("Times New Roman",Font.PLAIN, 32));
         logBut.addActionListener(new ActionListener() {
             @Override

@@ -15,9 +15,9 @@ public class Main {
 //        Connection conn= DriverManager.getConnection(dbUrl, "postgres", "Swamiji812!");
 
         JFrame frame= new JFrame(gc);
-        frame.setSize(800,800);
+        frame.setSize(1200,800);
         frame.setResizable(false);
-        frame.getContentPane().add(new ButtonPanel());
+        frame.getContentPane().add(new LoginPage());
         frame.setVisible(true);
 
 
